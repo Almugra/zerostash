@@ -26,6 +26,8 @@ bech32 = "0.9.1"
 dirs = "4.0.0"
 xdg = "2.4.1"
 
+fuse_mt = "0.6.0"
+
 async-trait = "0.1.57"
 humansize = "1.1.1"
 chrono = { version = "0.4.22", default-features = false, features = ["std", "clock"] }
