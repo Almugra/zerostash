@@ -27,6 +27,7 @@ dirs = "4.0.0"
 xdg = "2.4.1"
 
 fuse_mt = "0.6.0"
+ctrlc = "3.2.3"
 
 async-trait = "0.1.57"
 humansize = "1.1.1"
