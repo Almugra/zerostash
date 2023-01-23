@@ -12,8 +12,8 @@ mod ls;
 use ls::*;
 mod wipe;
 use wipe::*;
-mod mount;
-use mount::*;
+pub mod mount;
+pub use mount::*;
 
 use crate::{
     config::{Key, SymmetricKey, YubikeyCRConfig, YubikeyCRKey},
