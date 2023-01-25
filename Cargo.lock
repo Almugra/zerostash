@@ -3107,7 +3107,6 @@ dependencies = [
  "clap 3.2.22",
  "criterion",
  "flume",
- "fuse_mt",
  "futures",
  "getrandom",
  "glob",
