@@ -7,10 +7,10 @@ use std::sync::Mutex;
 use directory::Dir;
 use infinitree::*;
 
-mod files;
 pub mod directory;
-pub use files::*;
+mod files;
 pub use directory::*;
+pub use files::*;
 pub mod rollsum;
 pub mod splitter;
 mod stash;

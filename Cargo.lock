@@ -1205,7 +1205,7 @@ dependencies = [
  "ring",
  "rmp-serde",
  "rust-argon2",
- "scc",
+ "scc 0.8.4",
  "secrecy",
  "serde",
  "serde_derive",
@@ -1226,7 +1226,7 @@ dependencies = [
  "lru",
  "reqwest",
  "rusty-s3",
- "scc",
+ "scc 0.8.4",
  "serde",
  "serde_derive",
  "tokio",
@@ -2078,6 +2078,12 @@ checksum = "5d76c53dd8f5c6f8b42e0b59bc3bdd15fb7de611a06d77549b0afcd0abc1a65c"
 dependencies = [
  "scopeguard",
 ]
+
+[[package]]
+name = "scc"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "958f09ac02e0e9f93544faa348b1799b9a05c04dbea3973430aea0b4c706f9ae"
 
 [[package]]
 name = "scopeguard"
@@ -3083,6 +3089,7 @@ dependencies = [
  "regex",
  "rpassword",
  "rprompt",
+ "scc 1.1.0",
  "secrecy",
  "security-framework",
  "serde",

@@ -25,6 +25,7 @@ bech32 = "0.9.1"
 
 dirs = "4.0.0"
 xdg = "2.4.1"
+scc = "1.1.0"
 
 fuse_mt = "0.6.0"
 ctrlc = "3.2.3"
@@ -54,12 +55,12 @@ tracing = "0.1.37"
 criterion = "0.3.6"
 
 
-[[bench]]
-name = "bench"
-harness = false
-path = "../bench/main.rs"
+#[[bench]]
+#name = "bench"
+#harness = false
+#path = "../bench/main.rs"
 
-[[bench-cri]]
+[[bench]]
 name = "bench-cri"
 harness = false
 path = "benches/bench.rs"
