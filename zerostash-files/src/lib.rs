@@ -20,12 +20,12 @@ pub use stash::store;
 type ChunkIndex = fields::VersionedMap<Digest, ChunkPointer>;
 type FileIndex = fields::VersionedMap<String, Entry>;
 type DirectoryIndex = fields::VersionedMap<PathBuf, Vec<Dir>>;
-type ParentPaths = fields::VersionedMap<usize, Vec<PathBuf>>;
+type CommitPaths = fields::VersionedMap<usize, Vec<PathBuf>>;
 
 #[derive(Clone, Default, Index)]
 pub struct Files {
     pub chunks: ChunkIndex,
     pub files: FileIndex,
     pub directories: DirectoryIndex,
-    pub upmost_parents: ParentPaths,
+    pub commit_paths: CommitPaths,
 }
