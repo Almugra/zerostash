@@ -1,10 +1,9 @@
 #[macro_use]
 extern crate serde_derive;
 
-use std::path::PathBuf;
-
-use directory::Dir;
+use zerostash_fuse::dir::Dir;
 use infinitree::*;
+use std::path::PathBuf;
 
 pub mod directory;
 mod files;
@@ -20,12 +19,10 @@ pub use stash::store;
 type ChunkIndex = fields::VersionedMap<Digest, ChunkPointer>;
 type FileIndex = fields::VersionedMap<String, Entry>;
 type DirectoryIndex = fields::VersionedMap<PathBuf, Vec<Dir>>;
-type CommitPaths = fields::VersionedMap<usize, Vec<PathBuf>>;
 
 #[derive(Clone, Default, Index)]
 pub struct Files {
     pub chunks: ChunkIndex,
     pub files: FileIndex,
     pub directories: DirectoryIndex,
-    pub commit_paths: CommitPaths,
 }

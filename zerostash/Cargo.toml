@@ -17,6 +17,7 @@ clap = "3.2.22"
 infinitree = { version = "0.9.0", features = ["cryptobox", "yubikey"] }
 infinitree-backends = { version = "0.9.0", default-features = false, features = ["rustls"] }
 zerostash-files = { version = "0.5.0", path = "../zerostash-files" }
+zerostash-fuse = { version = "0.1.0", path = "../zerostash-fuse", optional = true}
 rpassword = "7.0.0"
 rprompt = "1.0.5"
 serde = { version = "1.0.145", features = ["serde_derive"] }
@@ -25,11 +26,6 @@ bech32 = "0.9.1"
 
 dirs = "4.0.0"
 xdg = "2.4.1"
-scc = "1.1.0"
-
-fuse_mt = "0.6.0"
-ctrlc = "3.2.3"
-tracing = "0.1.37"
 
 async-trait = "0.1.57"
 humansize = "1.1.1"
@@ -41,6 +37,13 @@ abscissa_core= "0.6.0"
 regex = "1.6.0"
 
 secrecy = { version = "0.8.0", features = ["serde"] }
+scc = {version = "1.1.0", optional = true}
+fuse_mt = {version = "0.6.0", optional = true}
+tracing = {version = "0.1.37", optional = true}
+ctrlc = {version = "3.2.3", optional = true}
+
+[features]
+fuse = ["dep:zerostash-fuse", "dep:scc", "dep:fuse_mt", "dep:ctrlc", "dep:tracing"]
 
 [target.'cfg(target_os = "macos")'.dependencies]
 security-framework = "2.7.0"
@@ -54,13 +57,12 @@ tracing-subscriber = "0.3.16"
 tracing = "0.1.37"
 criterion = "0.3.6"
 
+[[bench]]
+name = "bench"
+harness = false
+path = "benches/bench.rs"
 
 #[[bench]]
 #name = "bench"
 #harness = false
 #path = "../bench/main.rs"
-
-[[bench]]
-name = "bench-cri"
-harness = false
-path = "benches/bench.rs"

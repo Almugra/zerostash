@@ -3102,6 +3102,7 @@ dependencies = [
  "walkdir",
  "xdg",
  "zerostash-files",
+ "zerostash-fuse",
 ]
 
 [[package]]
@@ -3129,6 +3130,15 @@ dependencies = [
  "thiserror",
  "tokio",
  "tracing",
+ "zerostash-fuse",
+]
+
+[[package]]
+name = "zerostash-fuse"
+version = "0.1.0"
+dependencies = [
+ "infinitree",
+ "serde",
 ]
 
 [[package]]

@@ -12,7 +12,9 @@ mod ls;
 use ls::*;
 mod wipe;
 use wipe::*;
+#[cfg(feature = "fuse")]
 pub mod mount;
+#[cfg(feature = "fuse")]
 pub use mount::*;
 
 use crate::{
@@ -43,6 +45,7 @@ pub enum ZerostashCmd {
     Ls(Ls),
 
     /// Mount the files in a stash
+    #[cfg(feature = "fuse")]
     Mount(Mount),
 
     /// Key management & generation
@@ -146,8 +149,9 @@ impl Runnable for EntryPoint {
                 Log(cmd) => cmd.run().await,
                 Ls(cmd) => cmd.run().await,
                 Keys(cmd) => cmd.run().await,
-                Mount(cmd) => cmd.run().await,
                 Wipe(cmd) => cmd.run().await,
+                #[cfg(feature = "fuse")]
+                Mount(cmd) => cmd.run().await,
             }
         })
         .unwrap()
