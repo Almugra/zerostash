@@ -3148,7 +3148,6 @@ dependencies = [
  "infinitree",
  "nix 0.24.2",
  "scc 1.1.1",
- "serde",
  "tracing",
  "zerostash-files",
 ]
