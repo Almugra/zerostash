@@ -2,26 +2,22 @@
 extern crate serde_derive;
 
 use infinitree::*;
-use std::path::PathBuf;
-
-pub mod directory;
+pub mod tree;
+pub use tree::*;
 mod files;
-pub use directory::*;
 pub use files::*;
 pub mod rollsum;
 pub mod splitter;
 mod stash;
-
 pub use stash::restore;
 pub use stash::store;
 
 type ChunkIndex = fields::VersionedMap<Digest, ChunkPointer>;
 type FileIndex = fields::VersionedMap<String, Entry>;
-type DirectoryIndex = fields::VersionedMap<PathBuf, Vec<Dir>>;
 
 #[derive(Clone, Default, Index)]
 pub struct Files {
     pub chunks: ChunkIndex,
     pub files: FileIndex,
-    pub directories: DirectoryIndex,
+    pub directory_tree: infinitree::fields::Serialized<Tree>,
 }
