@@ -2081,9 +2081,9 @@ dependencies = [
 
 [[package]]
 name = "scc"
-version = "1.1.1"
+version = "1.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6a9850c76375f71fc882d7386edf3c5f8ca9c97fb73d59ad61a8de8bbdb37e57"
+checksum = "f4251e107baef7816375cc697642858920c4309d1fac3967a3026606c4f1de37"
 
 [[package]]
 name = "scopeguard"
@@ -3162,7 +3162,7 @@ dependencies = [
  "fuse_mt",
  "infinitree",
  "nix 0.24.2",
- "scc 1.1.1",
+ "scc 1.1.3",
  "tokio",
  "tracing",
  "zerostash-files",
