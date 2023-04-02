@@ -42,15 +42,15 @@ impl AsyncRunnable for Ls {
 }
 
 impl Ls {
-    fn print_simple(&self) -> Box<dyn Fn(Arc<Entry>)> {
-        Box::new(|entry: Arc<Entry>| println!("{}", entry.name))
+    fn print_simple(&self) -> Box<dyn Fn((String, Arc<Entry>))> {
+        Box::new(|(path, _)| println!("{}", path))
     }
 
-    fn print_list(&self) -> Box<dyn Fn(Arc<Entry>)> {
+    fn print_list(&self) -> Box<dyn Fn((String, Arc<Entry>))> {
         let human_readable = self.human_readable;
         let stdout = stdout();
 
-        Box::new(move |entry: Arc<Entry>| {
+        Box::new(move |(path, entry)| {
             let time: DateTime<Utc> = entry.as_ref().into();
             let local_time = time.with_timezone(&chrono::Local);
             let formatted_time = local_time.format("%Y %b %e %H:%M:%S").to_string();
@@ -96,9 +96,9 @@ impl Ls {
                 stdout,
                 file_color,
                 if let FileType::Symlink(ref target) = entry.file_type {
-                    format!("{} -> {:?}", entry.name, target)
+                    format!("{} -> {:?}", path, target)
                 } else {
-                    entry.name.clone()
+                    path
                 },
             );
             writeln!(stdout.lock()).unwrap();

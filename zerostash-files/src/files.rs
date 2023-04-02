@@ -170,6 +170,14 @@ impl Entry {
             (0, 0)
         };
 
+        let name = path
+            .as_ref()
+            .file_name()
+            .unwrap()
+            .to_str()
+            .unwrap()
+            .to_string();
+
         Ok(Entry {
             unix_secs,
             unix_nanos,
@@ -187,7 +195,7 @@ impl Entry {
             readonly: if_yes!(preserve.permissions, metadata.permissions().readonly()),
 
             size: metadata.len(),
-            name: normalize_filename(path)?,
+            name,
 
             chunks: Vec::new(),
         })
@@ -208,6 +216,14 @@ impl Entry {
             (0, 0)
         };
 
+        let name = path
+            .as_ref()
+            .file_name()
+            .unwrap()
+            .to_str()
+            .unwrap()
+            .to_string();
+
         Ok(Entry {
             unix_secs,
             unix_nanos,
@@ -225,7 +241,7 @@ impl Entry {
             },
 
             size: metadata.len(),
-            name: normalize_filename(path)?,
+            name,
 
             chunks: Vec::new(),
         })
