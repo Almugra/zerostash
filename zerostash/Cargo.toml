@@ -14,8 +14,8 @@ categories = ["cryptography", "filesystem", "command-line-utilities"]
 anyhow = "1.0.65"
 thiserror = "1.0.37"
 clap = "3.2.22"
-infinitree = { version = "0.9.0", features = ["cryptobox", "yubikey"] }
-infinitree-backends = { version = "0.9.0", default-features = false, features = ["rustls"] }
+infinitree = { version = "0.9.2", features = ["cryptobox", "yubikey"] }
+infinitree-backends = { version = "0.9.2", default-features = false, features = ["rustls"] }
 zerostash-files = { version = "0.5.0", path = "../zerostash-files" }
 zerostash-fuse = { version = "0.1.0", path = "../zerostash-fuse", optional = true}
 rpassword = "7.0.0"
