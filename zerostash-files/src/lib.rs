@@ -19,5 +19,5 @@ type FileIndex = fields::VersionedMap<String, Entry>;
 pub struct Files {
     pub chunks: ChunkIndex,
     pub files: FileIndex,
-    pub directory_tree: infinitree::fields::Serialized<Tree>,
+    pub tree: Tree,
 }
