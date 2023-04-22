@@ -28,6 +28,8 @@ impl AsyncRunnable for Ls {
     /// Start the application.
     async fn run(&self) {
         let stash = self.stash.open();
+        stash.load(stash.index().tree()).unwrap();
+
         let count = self
             .options
             .list(&stash)
